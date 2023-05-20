@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Vue3的响应式原理</title>
+  </head>
+  <body>
+    <script>
+      //源数据
+      let parson={
+        name:'张三',
+        age:18
+      }
+
+      //模拟Vue2中实现响应式
+      //#region
+      /*let p={};
+      Object.defineProperty(p,'name',{
+        configurable:true,
+        get(){
+          console.log(`有人读取了name属性！`)
+          return parson.name
+        },
+        set(value){
+          console.log(`有人修改了name属性,我要去更新页面！`)
+          return parson.name=value
+        }
+      })
+      Object.defineProperty(p,'age',{
+        configurable:true,
+        get(){
+          console.log(`有人读取了age属性！`)
+          return parson.age
+        },
+        set(value){
+          console.log(`有人修改了age属性,我要去更新页面！`)
+          return parson.age=value
+        }
+      })  */
+      //#endregion
+
+
+      //模拟Vue3中实现响应式
+      const p = new Proxy(parson,{
+        get(target,propName){
+          console.log(`读取了${propName}`)
+          //return target[propName]
+          return Reflect.get(target,propName)
+        },
+        //修改p的某个属性，或给p追加一个属性调用
+        set(target,propName,value){
+          console.log(`修改了${propName},更新页面！`)
+          //return target[propName]=value
+          return Reflect.set(target,propName,value)
+        },
+        deleteProperty(target,propName){
+          console.log(`删除了${propName},更新页面！`)
+          //return delete target[propName]
+          return Reflect.deleteProperty(target,propName)
+        },      
+      })  
+
+
+      let obj={
+        name:'李四',
+        age:19
+      } 
+      //通过Object.defineProperty去操作
+      /* try{
+        Object.defineProperty(obj,'a',{
+          get(){
+            return 3
+          }
+        })
+        Object.defineProperty(obj,'a',{
+          get(){
+            return 4
+          }
+        }) 
+      }catch(error){
+        console.log(error)
+      } */
+     
+
+
+
+
+      //Reflect.defineProperty去操作
+      /*const a1=Reflect.defineProperty(obj,'a',{
+        get(){
+          return 3
+        }
+      })
+      console.log(a1)
+      const a2=Reflect.defineProperty(obj,'a',{
+        get(){
+          return 4
+        }
+      })
+      if(a2){
+        console.log('操作成功')
+      }else{
+        console.log('操作失败')
+      }
+      console.log(a2)
+      console.log('@@@')  */
+
+    </script>
+  </body>
+</html>
