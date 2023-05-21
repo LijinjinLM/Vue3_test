@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {ref,reactive, watch} from 'vue'
+import {ref,reactive, watch, watchEffect} from 'vue'
 export default {
   name: 'Demo',
   setup(){
@@ -18,7 +18,7 @@ export default {
     let msg=ref('你好')
 
     //数据
-    let person=ref({  //注意这是ref函数
+    let person=reactive({
       firstName:'张',
       lastName:'三',
       job:{
@@ -28,13 +28,16 @@ export default {
       }   
     })
 
-    /* watch(person.value,(newValue,oldValue)=>{//1.可以用person.value监测
+    watch(sum,(newValue,oldValue)=>{
       console.log(`数据变化`,newValue,oldValue)
-    }) */
+    })
 
-    watch(person,(newValue,oldValue)=>{//2.加deep配置
-      console.log(`数据变化`,newValue,oldValue)
-    },{deep:true})
+    //watchEffect所指定的回调中得到的数据只要发生改变，则直接重新执行回调函数
+    watchEffect(()=>{
+      let x=msg.value
+      let p=person.job.a.b
+      console.log('watchEffect调用')
+    })
 
 
     //返回一个对象（常用）
