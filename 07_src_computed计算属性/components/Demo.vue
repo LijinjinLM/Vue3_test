@@ -32,7 +32,7 @@ export default {
         console.log(value)
         const full=value.split('-')
         person.firstName=full[0]||''
-        person.lastName=fll[1]||''
+        person.lastName=full[1]||''
       }
     })
 
