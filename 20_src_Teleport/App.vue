@@ -13,6 +13,7 @@ export default {
   setup(){
     console.log('本地修改')
     console.log('远端修改')
+    console.log('远端修改12')
   }
 }
 </script>
