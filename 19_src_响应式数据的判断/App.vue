@@ -17,9 +17,10 @@ export default {
     console.log(isReactive(car))
     console.log(isReadonly(car2))
     console.log(isProxy(car2))//检查一个对象是否是由reactive或readonly方法创建的代理
-
+    console.log('本地修改12')
 
     return{...toRefs(car)}
+
   }
 }
 </script>
