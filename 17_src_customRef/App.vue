@@ -31,7 +31,9 @@ export default {
 
 
 console.log("这是远端代码的第一次修改。。。首行")
-    console.log("这是远端代码的第一次修改。。。末行")
+
+    console.log("=====这是远端代码的第二次修改。。。首行哈哈哈")
+    console.log("这是远端代码的第一次修改。同时也是远端的第二次修改。。末行哈哈哈")
     
     //let keyword=ref('hello')//使用vue提供的ref
     let keyword=myRef('hello',500)//使用自定义提供的ref
