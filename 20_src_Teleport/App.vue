@@ -10,10 +10,8 @@ import Child from './components/Child.vue'
 export default {
   components: { Child },
   name: 'App',
-  setup(){
-    console.log('本地修改')
+  setup(){  
     console.log('远端修改')
-    console.log('远端修改12')
   }
 }
 </script>
