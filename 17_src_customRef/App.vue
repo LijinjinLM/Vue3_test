@@ -29,6 +29,10 @@ export default {
       })
     }
 
+
+console.log("这是远端代码的第一次修改。。。首行")
+    console.log("这是远端代码的第一次修改。。。末行")
+    
     //let keyword=ref('hello')//使用vue提供的ref
     let keyword=myRef('hello',500)//使用自定义提供的ref
     return {keyword}
