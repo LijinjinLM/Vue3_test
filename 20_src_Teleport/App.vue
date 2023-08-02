@@ -11,6 +11,7 @@ export default {
   components: { Child },
   name: 'App',
   setup(){
+    console.log('本地修改')
     console.log('远端修改')
   }
 }
