@@ -12,6 +12,7 @@ export default {
   name: 'App',
   setup(){
    console.log("aaaaaaaaaaa")
+   console.log("aaaaaaaaaaa")
   }
 }
 </script>
