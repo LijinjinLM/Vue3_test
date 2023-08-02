@@ -14,7 +14,8 @@ export default {
     console.log('远端修改')
   }
 }
-  console.log('原酸修改前')
+  console.log('原酸修改前，做了一些更改')
+console.log('llllll，原酸修改中')
   console.log('原酸修改后')
 </script>
 <style scoped>
