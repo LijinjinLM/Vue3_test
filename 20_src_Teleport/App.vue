@@ -11,8 +11,7 @@ export default {
   components: { Child },
   name: 'App',
   setup(){
-   console.log("aaaaaaaaaaa")
-   console.log("aaaaaaaaaaa")
+    console.log('远端修改')
   }
 }
 </script>
