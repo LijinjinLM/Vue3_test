@@ -11,11 +11,9 @@ export default {
   components: { Child },
   name: 'App',
   setup(){  
-    console.log('远端修改')
+    
   }
 }
-  console.log('原酸修改前')
-  console.log('原酸修改后')
 </script>
 <style scoped>
 .main{
